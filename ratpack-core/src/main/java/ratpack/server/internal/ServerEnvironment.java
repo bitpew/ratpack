@@ -83,7 +83,7 @@ public class ServerEnvironment {
         () -> env.get("RATPACK_DEVELOPMENT"),
         () -> {
           String command = System.getProperty("sun.java.command");
-          return command.startsWith(INTELLIJ_MAIN) && !command.contains(INTELLIJ_JUNIT) ? "true" : null;
+          return command != null && command.startsWith(INTELLIJ_MAIN) && !command.contains(INTELLIJ_JUNIT) ? "true" : null;
         })
     );
   }
